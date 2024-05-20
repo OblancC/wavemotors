@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [MdbCarouselModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
