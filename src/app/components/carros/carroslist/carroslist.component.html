@@ -1,1 +1,70 @@
-<p>carroslist works!</p>
+<div class="container">
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <div class="alinharDireita">
+        <button (click)="new()" class="btn btn-success ">
+          Adicionar
+          <i class="fa fa-plus fa-1x"></i>
+        </button>
+      </div>
+      <br>
+      <div class="centralizar">
+        <h3>Lista de Carros</h3>
+      </div>
+      <br>
+
+      <table class="table" border="1">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Cor</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (carro of lista; track $index) {
+          <tr>
+            <th scope="row">{{ carro.id }}</th>
+            <td>{{ carro.marca }}</td>
+            <td>{{ carro.modelo }}</td>
+            <td>{{ carro.ano }}</td>
+            <td>{{carro.cor}}</td>
+            <td>{{ carro.preco }}</td>
+            <td>{{ carro.descricao }}</td>
+            <td>
+              <div class="alinharDireita">
+
+                <button (click)="edit(carro)" class="btn btn-success btn-rounded">
+                  Editar
+                  <i class="fa fa-pen fa-1x"></i>
+                </button>
+
+                <button (click)="deleteById(carro)" class="btn btn-danger btn-rounded">
+                  Deletar
+                  <i class="fa fa-trash-can fa-1x"></i>
+                </button>
+
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalDetalhe>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Carro</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+  </div>
+  <div class="modal-body">
+    <app-carrosdetails [carro]="carroEdit" (retorno)="retornoDetalhe($event)"></app-carrosdetails>
+  </div>
+</ng-template>

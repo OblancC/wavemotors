@@ -1,0 +1,44 @@
+<div class="container">
+  <br>
+  <div class="card">
+    <div class="card-body centralizar">
+
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="carro.modelo"/>
+        <label mdbLabel class="form-label" for="form1">Modelo do Carro</label>
+      </mdb-form-control>
+      <br>
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="carro.marca"/>
+        <label mdbLabel class="form-label" for="form1">Marca do Carro</label>
+      </mdb-form-control>
+      <br>
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="carro.ano"/>
+        <label mdbLabel class="form-label" for="form1">Ano do Carro</label>
+      </mdb-form-control>
+      <br>
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="carro.cor"/>
+        <label mdbLabel class="form-label" for="form1">Cor do Carro</label>
+      </mdb-form-control>
+      <br>
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="carro.preco"/>
+        <label mdbLabel class="form-label" for="form1">Preço do Carro</label>
+      </mdb-form-control>
+      <br>
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="carro.descricao"/>
+        <label mdbLabel class="form-label" for="form1">Descrição do Carro</label>
+      </mdb-form-control>
+      <br>
+      <button (click)="save()" type="button" class="btn btn-primary btn-rounded" mdbRipple>
+        Salvar
+      </button>
+
+
+    </div>
+  </div>
+</div>
+<br>
