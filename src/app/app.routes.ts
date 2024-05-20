@@ -6,10 +6,12 @@ import { CarrosdetailsComponent } from './components/carros/carrosdetails/carros
 import { MarcaslistComponent } from './components/marcas/marcaslist/marcaslist.component';
 import { MarcasdetailsComponent } from './components/marcas/marcasdetails/marcasdetails.component';
 import { ContatoComponent } from './components/contato/contato.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'principal', pathMatch: 'full' },
+  { path: '', redirectTo: 'principal/home', pathMatch: 'full' },
   { path: 'principal', component: PrincipalComponent, children: [
+    {path: 'home', component: HomeComponent},
     { path: 'carros', component: CarroslistComponent },
     { path: 'marcas', component: MarcaslistComponent },
     { path: 'login', component: LoginComponent },
