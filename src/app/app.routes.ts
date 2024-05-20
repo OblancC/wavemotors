@@ -5,6 +5,7 @@ import { CarroslistComponent } from './components/carros/carroslist/carroslist.c
 import { CarrosdetailsComponent } from './components/carros/carrosdetails/carrosdetails.component';
 import { MarcaslistComponent } from './components/marcas/marcaslist/marcaslist.component';
 import { MarcasdetailsComponent } from './components/marcas/marcasdetails/marcasdetails.component';
+import { ContatoComponent } from './components/contato/contato.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'principal', pathMatch: 'full' },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     { path: 'carros', component: CarroslistComponent },
     { path: 'marcas', component: MarcaslistComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'contato', component: ContatoComponent}
   ]},
 
   {
