@@ -7,6 +7,8 @@ import { MarcaslistComponent } from './components/marcas/marcaslist/marcaslist.c
 import { MarcasdetailsComponent } from './components/marcas/marcasdetails/marcasdetails.component';
 import { ContatoComponent } from './components/contato/contato.component';
 import { HomeComponent } from './components/home/home.component';
+import { AcessorioslistComponent } from './components/acessorios/acessorioslist/acessorioslist.component';
+import { AcessoriosdetailsComponent } from './components/acessorios/acessoriosdetails/acessoriosdetails.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'principal/home', pathMatch: 'full' },
@@ -26,6 +28,9 @@ export const routes: Routes = [
       { path: 'carros/edit/:id', component: CarrosdetailsComponent },
       { path: 'marcas/new', component: MarcasdetailsComponent },
       { path: 'marcas/edit/:id', component: MarcasdetailsComponent },
+      {path: 'acessorios', component: AcessorioslistComponent},
+      {path: 'acessorios/new', component: AcessoriosdetailsComponent},
+      {path: 'acessorios/edit/:id', component: AcessoriosdetailsComponent}
     ],
   },
 ];
