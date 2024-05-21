@@ -12,13 +12,17 @@ import { AcessoriosdetailsComponent } from './components/acessorios/acessoriosde
 
 export const routes: Routes = [
   { path: '', redirectTo: 'principal/home', pathMatch: 'full' },
-  { path: 'principal', component: PrincipalComponent, children: [
-    {path: 'home', component: HomeComponent},
-    { path: 'carros', component: CarroslistComponent },
-    { path: 'marcas', component: MarcaslistComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'contato', component: ContatoComponent}
-  ]},
+  {
+    path: 'principal',
+    component: PrincipalComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'carros', component: CarroslistComponent },
+      { path: 'marcas', component: MarcaslistComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'contato', component: ContatoComponent },
+    ],
+  },
 
   {
     path: 'admin',
@@ -28,9 +32,9 @@ export const routes: Routes = [
       { path: 'carros/edit/:id', component: CarrosdetailsComponent },
       { path: 'marcas/new', component: MarcasdetailsComponent },
       { path: 'marcas/edit/:id', component: MarcasdetailsComponent },
-      {path: 'acessorios', component: AcessorioslistComponent},
-      {path: 'acessorios/new', component: AcessoriosdetailsComponent},
-      {path: 'acessorios/edit/:id', component: AcessoriosdetailsComponent}
+      { path: 'acessorios', component: AcessorioslistComponent },
+      { path: 'acessorios/new', component: AcessoriosdetailsComponent },
+      { path: 'acessorios/edit/:id', component: AcessoriosdetailsComponent },
     ],
   },
 ];
