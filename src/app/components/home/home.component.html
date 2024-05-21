@@ -1,11 +1,12 @@
+<div class="banner-pai">
 <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
     <mdb-carousel-item>
       <img
         src="assets/img/imagem-banner1.jpg"
         class="d-block w-100"
-        alt="img-1"
-        style="max-height: 700px;"
-      />
+        alt="img-1"      
+        style="height: 700px;"
+        />
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -16,7 +17,7 @@
         src="assets/img/imagem-banner2.jpg"
         class="d-block w-100"
         alt="img-2"
-        style="max-height: 700px;"
+        style="height: 700px;"
 
       />
       <div class="carousel-caption d-none d-md-block">
@@ -29,8 +30,7 @@
         src="assets/img/imagem-banner3.jpg"
         class="d-block w-100"
         alt="img-3"
-        style="max-height: 700px;"
-
+        style="height: 700px;"
       />
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
@@ -38,9 +38,131 @@
       </div>
     </mdb-carousel-item>
   </mdb-carousel>
+</div>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Pesquisa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .search-tabs {
+            display: flex;
+            gap: 20px;
+        }
+        .search-tabs div {
+            padding: 10px;
+            cursor: pointer;
+            color: #7a7a7a;
+        }
+        .search-tabs .active {
+            border-bottom: 3px solid red;
+            color: #000;
+        }
+        .search-input {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .search-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            margin-left: 10px;
+        }
+        .search-button button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div class="search-tabs">
+            <div class="active">Comprar carros</div>
+
+        </div>
+        <div class="search-input">
+            <input type="text" placeholder="Digite marca ou modelo do carro">
+        </div>
+        <div class="search-button">
+            <button>VER OFERTAS (380.683)</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-50
+      ">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-50">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-50 w-90">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This card has even longer content than the first to show
+            that equal height action.
+          </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
   <footer class="bg-light text-center text-lg-start">
-    <!-- Grid container -->
     <div class="container p-4">
       <!--Grid row-->
       <div class="row">
