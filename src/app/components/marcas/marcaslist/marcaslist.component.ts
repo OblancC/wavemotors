@@ -20,8 +20,8 @@ export class MarcaslistComponent {
   @Input("esconderBotoes") esconderBotoes: boolean = false;
   @Output("retorno") retorno = new EventEmitter<any>();
 
-  //ELEMENTOS DA MODAL
-  modalService = inject(MdbModalService); // para conseguir abrir a modal
+
+  modalService = inject(MdbModalService);
   @ViewChild("modalMarcaDetalhe") modalMarcaDetalhe!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
@@ -49,10 +49,10 @@ export class MarcaslistComponent {
   listAll(){
 
     this.marcaService.listAll().subscribe({
-      next: lista => { //quando o back retornar o que se espera
+      next: lista => { 
         this.lista = lista;
       },
-      error: erro => { //quando ocorrer qualquer erro (badrequest, exceptions..)
+      error: erro => { 
         Swal.fire({
           title: 'Ocorreu um erro',
           icon: 'error',
@@ -76,7 +76,7 @@ export class MarcaslistComponent {
 
 
         this.marcaService.delete(marca.id).subscribe({
-          next: mensagem => { //quando o back retornar o que se espera
+          next: mensagem => { 
             Swal.fire({
               title: mensagem,
               icon: 'success',
@@ -85,7 +85,7 @@ export class MarcaslistComponent {
 
             this.listAll();
           },
-          error: erro => { //quando ocorrer qualquer erro (badrequest, exceptions..)
+          error: erro => {
             Swal.fire({
               title: 'Ocorreu um erro',
               icon: 'error',
@@ -105,7 +105,7 @@ export class MarcaslistComponent {
   }
 
   edit(marca: Marca){
-    this.marcaEdit = Object.assign({}, marca); //clonando pra evitar referência de objeto
+    this.marcaEdit = Object.assign({}, marca);
     this.modalRef = this.modalService.open(this.modalMarcaDetalhe);
   }
 
