@@ -26,6 +26,7 @@ export const routes: Routes = [
     children: [
       { path: 'carros/new', component: CarrosdetailsComponent },
       { path: 'carros/edit/:id', component: CarrosdetailsComponent },
+      { path: 'marcas', component: MarcaslistComponent },
       { path: 'marcas/new', component: MarcasdetailsComponent },
       { path: 'marcas/edit/:id', component: MarcasdetailsComponent },
       {path: 'acessorios', component: AcessorioslistComponent},
