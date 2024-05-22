@@ -29,23 +29,28 @@ export class CarroslistComponent {
   lista: Carro[] = [];
   carroEdit!: Carro;
 
-  contructor(){
+  constructor(){
     this.findAll();
   }
   findAll(){
     let carro1 = new Carro();
-    carro1.id = 1;
-    carro1.modelo = 'Fusca';
-    carro1.ano = 1972;
-    carro1.marca = 'Volkswagen';
-    carro1.cor = 'Azul';
-    carro1.preco = 40000;
-    this.lista.push(carro1);
+     carro1.id = 1;
+     carro1.modelo = 'Porsche 718';
+     carro1.ano = 2016;
+     carro1.cor = 'Grafite';
+     this.lista.push(carro1);
+
+     let carro2 = new Carro();
+     carro2.id = 2;
+     carro2.modelo = 'Porsche 718';
+     carro2.ano = 2016;
+     carro2.cor = 'Grafite';
+     this.lista.push(carro2);
   }
 
   new(){
-    this.carroEdit = new Carro();
-    this.modalRef = this.modalService.open(this.modalDetalhe);
+    // this.carroEdit = new Carro();
+    // this.modalRef = this.modalService.open(this.modalDetalhe);
   }
 
   edit(carro: Carro){

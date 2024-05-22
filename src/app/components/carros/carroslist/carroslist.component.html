@@ -13,49 +13,42 @@
         <h3>Lista de Carros</h3>
       </div>
       <br>
+      <div class="cardsCarros row align-items-center">
 
-      <table class="table" border="1">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Ano</th>
-            <th scope="col">Cor</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Descrição</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (carro of lista; track $index) {
-          <tr>
-            <th scope="row">{{ carro.id }}</th>
-            <td>{{ carro.marca }}</td>
-            <td>{{ carro.modelo }}</td>
-            <td>{{ carro.ano }}</td>
-            <td>{{carro.cor}}</td>
-            <td>{{ carro.preco }}</td>
-            <td>{{ carro.descricao }}</td>
-            <td>
+        @for(carro of lista; track $index){
+        <div routerLink="/admin/carros/view/{{carro.id}}" class="card--">
+          <div class="bg-image hover-overlay " mdbRipple rippleColor="light">
 
-              <div class="alinharDireita">
+            <!-- Adicionar carrossel dentro do card -->
+            <img
+              src="https://orlandoimports.com.br/wp-content/uploads/2024/04/aee4c95d21464427a02c937c76b58ba8_1707492052086.jpg"
+              class="img-fluid" />
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{carro.modelo}}</h5>
+            <p class="card-text">Ano de fabricação: {{carro.ano}} <br>Pintura: {{carro.cor}} </p>
+            <button class="btn btn-primary" style="background-color: #EC1B2A;">Ver</button>
+          </div>
+        </div>
+        <div routerLink="/admin/carros/view/{{carro.id}}" class="card--">
+          <div class="bg-image hover-overlay " mdbRipple rippleColor="light">
 
-                <button (click)="edit(carro)" class="btn btn-success btn-rounded">
-                  Editar
-                  <i class="fa fa-pen fa-1x"></i>
-                </button>
+            <!-- Adicionar carrossel dentro do card -->
+            <img
+              src="https://orlandoimports.com.br/wp-content/uploads/2024/04/aee4c95d21464427a02c937c76b58ba8_1707492052086.jpg"
+              class="img-fluid" />
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{carro.modelo}}</h5>
+            <p class="card-text">Ano de fabricação: {{carro.ano}} <br>Pintura: {{carro.cor}} </p>
+            <button class="btn btn-primary" style="background-color: #EC1B2A;">Ver</button>
+          </div>
+        </div>
+        }
 
-                <button (click)="deleteById(carro)" class="btn btn-danger btn-rounded">
-                  Deletar
-                  <i class="fa fa-trash-can fa-1x"></i>
-                </button>
-
-              </div>
-            </td>
-          </tr>
-          }
-        </tbody>
-      </table>
+      </div>
     </div>
   </div>
 </div>

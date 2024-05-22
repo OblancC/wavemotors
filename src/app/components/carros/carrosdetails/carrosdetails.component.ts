@@ -32,7 +32,7 @@ import { Acessorio } from '../../../models/acessorio';
   styleUrl: './carrosdetails.component.scss',
 })
 export class CarrosdetailsComponent {
-  @Input('carro') carro: Carro = new Carro(0, '', '', 0, '', 0, '', 0, null);
+  @Input('carro') carro: Carro = new Carro();
   @Output('retorno') retorno: EventEmitter<any> = new EventEmitter<Carro>();
 
   router = inject(ActivatedRoute);
