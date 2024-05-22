@@ -44,7 +44,7 @@ export class HomeComponent {
           this.lista = lista;
         },
         error: erro =>{
-          alert('deu erro');
+          alert('Ocorreu um erro imprevisto.');
         }
       });
     }
