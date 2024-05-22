@@ -48,10 +48,11 @@
         <p>
           Potencia (kW) / Potencia (cv) <br>
           470 kW/ 640 cv<br>
+          Aceleração 0 - 100 km/h<br>
+          3,2<br>
           Velocidade Máxima<br>
-           325 km/h<br>
-           Aceleração 0 - 100 km/h<br>
-          0-100 km/h3,2 s</p>
+          325 km/h<p>
+
       </div>
     </mdb-carousel-item>
   </mdb-carousel>
@@ -121,11 +122,11 @@
         <div class="search-tabs">
             <div class="active">Comprar carros</div>
         </div>
-        <div class="search-input">
-            <input type="text" placeholder="Digite marca ou modelo do carro">
+        <div class="search-input"> 
+            <input [(ngModel)]="pesquisa" type="text" placeholder="Digite marca ou modelo do carro">
         </div>
         <div class="search-button">
-            <button>Pesquisar</button>
+            <button (click)="pesquisar()">Pesquisar</button>
         </div>
     </div>
 </body>
@@ -133,58 +134,16 @@
 
 
 
+@for (carro of lista; track $index) {
 <div class="row justify-content-center g-4">
   <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
     <div class="card w-80 h-80 m-2">
       <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">{{carro.modelo}}</h5>
         <p class="card-text">
           This is a wider card with supporting text below as a natural lead-in to
           additional content. This content is a little bit longer.
-        </p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
-    <div class="card w-80 h-80 m-2">
-      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This content is a little bit longer.
-        </p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
-    <div class="card w-80 h-80 m-2">
-      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
-    <div class="card w-80 h-80 m-2">
-      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This card has even longer content than the first to show
-          that equal height action.
         </p>
       </div>
       <div class="card-footer">
@@ -193,7 +152,7 @@
     </div>
   </div>
 </div>
-
+}
 
   <footer class="bg-light text-center text-lg-start">
     <div class="container p-4">
@@ -202,7 +161,6 @@
         <!--Grid column-->
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
           <h5 class="text-uppercase">Footer text</h5>
-  
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
             molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
