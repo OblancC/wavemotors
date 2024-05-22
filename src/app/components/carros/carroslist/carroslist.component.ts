@@ -7,6 +7,7 @@ import { RouterLink,Router,RouterOutlet } from '@angular/router';
 import { Carro } from '../../../models/carro';
 import Swal from 'sweetalert2';
 import { CarrosdetailsComponent } from '../carrosdetails/carrosdetails.component';
+import { CarroService } from '../../../services/carro.service';
 
 
 @Component({
@@ -26,64 +27,87 @@ export class CarroslistComponent {
   @ViewChild('modalDetalhe') modalDetalhe!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
+  carroService = inject(CarroService);
+
   lista: Carro[] = [];
   carroEdit!: Carro;
 
-  constructor(){
-    this.findAll();
-  }
-  findAll(){
-    let carro1 = new Carro();
-     carro1.id = 1;
-     carro1.modelo = 'Porsche 718';
-     carro1.ano = 2016;
-     carro1.cor = 'Grafite';
-     this.lista.push(carro1);
 
-     let carro2 = new Carro();
-     carro2.id = 2;
-     carro2.modelo = 'Porsche 718';
-     carro2.ano = 2016;
-     carro2.cor = 'Grafite';
-     this.lista.push(carro2);
-  }
+  contructor(){
+    this.listAll();
 
-  new(){
-    // this.carroEdit = new Carro();
-    // this.modalRef = this.modalService.open(this.modalDetalhe);
-  }
+    let carroNovo = history.state.carroNovo;
+    let carroEditado = history.state.carroEditado;
 
-  edit(carro: Carro){
-    this.carroEdit = carro;
-    this.modalRef = this.modalService.open(this.modalDetalhe);
-  }
-
-  retornoDetalhe(carro: Carro){
-    if(this.carroEdit.id >0){
-      let indice = this.lista.findIndex((carroi) =>{
-        return carroi.id == this.carroEdit.id;
-      });
-    } else{
-      carro.id = 12;
-      this.lista.push(carro);
+    if(carroNovo != null){
+      carroNovo.id =2469;
+      this.lista.push(carroNovo);
     }
-    this.modalRef.close();
+    if(carroEditado != null){
+      let indice = this.lista.findIndex((x)=>{
+        return x.id == carroEditado.id;
+      });
+      this.lista[indice] = carroEditado;
+    }
+  }
+
+  listAll(){
+    this.carroService.listAll().subscribe({
+      next: lista =>{
+        this.lista = lista;
+      },
+      error: erro =>{
+        Swal.fire({
+          title:'Ocorreu um BO',
+          icon:'error',
+          confirmButtonText: 'OK',
+        });
+      }
+    });
   }
 
   deleteById(carro: Carro){
     Swal.fire({
-      title: 'Deseja excluir o carro?',
-      showCancelButton: true,
-      confirmButtonText: `Sim`,
-      cancelButtonText: `Não`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        let indice = this.lista.findIndex((carroi) => {
-          return carroi.id == carro.id; 
+      title:'Tem certeza que deseja deletar este registro?',
+      icon: 'warning',
+      showConfirmButton:true,
+      showDenyButton:true,
+      confirmButtonText:'Sim',
+      cancelButtonText:'Não',
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.carroService.delete(carro.id).subscribe({
+          next:mensagem => {
+            Swal.fire({
+              title: mensagem,
+              icon: 'success',
+              confirmButtonText:'Ok'
+            });
+            this.listAll();
+          },
+          error: erro =>{
+            Swal.fire({
+              title:'Ocorreu uma treta',
+              icon:'error',
+              confirmButtonText: 'Ok'
+            });
+          }
         });
-        this.lista.splice(indice, 1); 
-        Swal.fire('Carro excluído com sucesso!', '', 'success');
       }
     });
+  }
+
+  new(){
+    this.carroEdit = new Carro(0,'','',0,'',0,'',0,null);
+    this.modalRef = this.modalService.open(this.modalDetalhe);
+  }
+
+  edit(carro: Carro){
+    this.carroEdit = Object.assign({}, carro);
+    this.modalRef=this.modalService.open(this.modalDetalhe);
+  }
+  retornoDetalhe(carro: Carro){
+    this.listAll();
+    this.modalRef.close();
   }
 }
