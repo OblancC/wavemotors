@@ -20,13 +20,12 @@ import { Acessorio } from '../../../models/acessorio';
 })
 export class CarrosdetailsComponent {
 
-  @Input("carro") carro: Carro = new Carro(0,'',0,'',0,(new Marca(0,'')));
+  @Input("carro") carro: Carro = new Carro(0,"", 0, "", 0, 25,new Marca(0,''));
   @Output("retorno") retorno = new EventEmitter<any>();
   router = inject(ActivatedRoute);
   router2 = inject(Router);
 
-    //ELEMENTOS DA MODAL
-    modalService = inject(MdbModalService); // para conseguir abrir a modal
+    modalService = inject(MdbModalService);
     @ViewChild("modalMarcas") modalMarcas!: TemplateRef<any>;
     @ViewChild("modalAcessorios") modalAcessorios!: TemplateRef<any>;
     modalRef!: MdbModalRef<any>;

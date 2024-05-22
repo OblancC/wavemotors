@@ -1,12 +1,8 @@
 <div class="banner-pai">
   <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
     <mdb-carousel-item>
-      <img
-        src="assets/img/imagem-banner1.jpg"
-        class="d-block w-100"
-        alt="img-1"      
-        style="width: 1920px; height: 600px; object-fit: cover;"
-      />
+      <img src="assets/img/imagem-banner1.jpg" class="d-block w-100" alt="img-1"
+        style="width: 1920px; height: 600px; object-fit: cover;" />
       <div class="carousel-caption d-none d-md-block">
         <h5>Jetta GLI</h5>
         <p>Potência (kW)/Pôtencia (cv)<br>
@@ -19,12 +15,8 @@
       </div>
     </mdb-carousel-item>
     <mdb-carousel-item>
-      <img
-        src="assets/img/imagem-banner2.jpg"
-        class="d-block w-100"
-        alt="img-2"
-        style="width: 1920px; height: 600px; object-fit: cover;"
-      />
+      <img src="assets/img/imagem-banner2.jpg" class="d-block w-100" alt="img-2"
+        style="width: 1920px; height: 600px; object-fit: cover;" />
       <div class="carousel-caption d-none d-md-block">
         <h5>Porsche 911 Gt3 Rs</h5>
         <p>Potência (kW)/Pôtencia (cv)<br>
@@ -37,12 +29,8 @@
       </div>
     </mdb-carousel-item>
     <mdb-carousel-item>
-      <img
-        src="assets/img/imagem-banner3.jpg"
-        class="d-block w-100"
-        alt="img-3"
-        style="width: 1920px; height: 600px; object-fit: cover;"
-      />
+      <img src="assets/img/imagem-banner3.jpg" class="d-block w-100" alt="img-3"
+        style="width: 1920px; height: 600px; object-fit: cover;" />
       <div class="carousel-caption d-none d-md-block">
         <h5>Lamborghini Huracán Tecnica</h5>
         <p>
@@ -61,6 +49,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,19 +61,21 @@
     </style>
 
 </head>
+
 <body>
-    <div class="search-container">
-        <div class="search-tabs">
-            <div class="active">Comprar carros</div>
-        </div>
-        <div class="search-input"> 
-            <input [(ngModel)]="pesquisa" type="text" placeholder="Digite marca ou modelo do carro">
-        </div>
-        <div class="search-button">
-            <button (click)="pesquisar()">Pesquisar</button>
-        </div>
+  <div class="search-container">
+    <div class="search-tabs">
+      <div class="active">Comprar carros</div>
     </div>
+    <div class="search-input">
+      <input [(ngModel)]="pesquisa" type="text" placeholder="Digite marca ou modelo do carro">
+    </div>
+    <div class="search-button">
+      <button (click)="pesquisar()">Pesquisar</button>
+    </div>
+  </div>
 </body>
+
 </html>
 
 @for (carro of lista; track $index) {
@@ -132,24 +123,23 @@
             Empresa
 Av. das Cataratas, 1118 - Vila Yolanda, Foz do Iguaçu - PR, 85853-000
 
- (45) 3528-7997
+          (45) 3528-7997
 
-Horário de atendimento:
+          Horário de atendimento:
 
-Seg. à Sexta 08:00 - 18:00, Sábado 08:00 - 12:00.
-          </p>
-        </div>
-        <!--Grid column-->
+          Seg. à Sexta 08:00 - 18:00, Sábado 08:00 - 12:00.
+        </p>
       </div>
-      <!--Grid row-->
+      <!--Grid column-->
     </div>
-    <!-- Grid container -->
-  
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>

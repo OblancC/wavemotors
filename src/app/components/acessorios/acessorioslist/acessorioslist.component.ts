@@ -1,8 +1,20 @@
-import { Component, EventEmitter, Input, Output, TemplateRef, ViewChild, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  TemplateRef,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { Acessorio } from '../../../models/acessorio';
 import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
-import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import {
+  MdbModalModule,
+  MdbModalRef,
+  MdbModalService,
+} from 'mdb-angular-ui-kit/modal';
 import { AcessoriosdetailsComponent } from '../acessoriosdetails/acessoriosdetails.component';
 import { AcessorioService } from '../../../services/acessorio.service';
 
@@ -15,14 +27,13 @@ import { AcessorioService } from '../../../services/acessorio.service';
 })
 export class AcessorioslistComponent {
   lista: Acessorio[] = [];
-  acessorioEdit: Acessorio = new Acessorio(0,"");
+  acessorioEdit: Acessorio = new Acessorio(0, '');
 
-  @Input("esconderBotoes") esconderBotoes: boolean = false;
-  @Output("retorno") retorno = new EventEmitter<any>();
+  @Input('esconderBotoes') esconderBotoes: boolean = false;
+  @Output('retorno') retorno = new EventEmitter<any>();
 
-  //ELEMENTOS DA MODAL
-  modalService = inject(MdbModalService); // para conseguir abrir a modal
-  @ViewChild("modalAcessorioDetalhe") modalAcessorioDetalhe!: TemplateRef<any>;
+  modalService = inject(MdbModalService);
+  @ViewChild('modalAcessorioDetalhe') modalAcessorioDetalhe!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
   acessorioService = inject(AcessorioService);
@@ -46,21 +57,19 @@ export class AcessorioslistComponent {
     }
   }
 
-  listAll(){
-
+  listAll() {
     this.acessorioService.listAll().subscribe({
-      next: lista => { //quando o back retornar o que se espera
+      next: (lista) => {
         this.lista = lista;
       },
-      error: erro => { //quando ocorrer qualquer erro (badrequest, exceptions..)
+      error: (erro) => {
         Swal.fire({
           title: 'Ocorreu um erro',
           icon: 'error',
           confirmButtonText: 'Ok',
         });
-      }
+      },
     });
-
   }
 
   deleteById(acessorio: Acessorio) {
@@ -73,10 +82,8 @@ export class AcessorioslistComponent {
       cancelButtonText: 'Não',
     }).then((result) => {
       if (result.isConfirmed) {
-
-
         this.acessorioService.delete(acessorio.id).subscribe({
-          next: mensagem => { //quando o back retornar o que se espera
+          next: (mensagem) => {
             Swal.fire({
               title: mensagem,
               icon: 'success',
@@ -85,37 +92,34 @@ export class AcessorioslistComponent {
 
             this.listAll();
           },
-          error: erro => { //quando ocorrer qualquer erro (badrequest, exceptions..)
+          error: (erro) => {
             Swal.fire({
               title: 'Ocorreu um erro',
               icon: 'error',
               confirmButtonText: 'Ok',
             });
-          }
+          },
         });
-
-
       }
     });
   }
 
-  new(){
-    this.acessorioEdit = new Acessorio(0,"");
+  new() {
+    this.acessorioEdit = new Acessorio(0, '');
     this.modalRef = this.modalService.open(this.modalAcessorioDetalhe);
   }
 
-  edit(acessorio: Acessorio){
-    this.acessorioEdit = Object.assign({}, acessorio); //clonando pra evitar referência de objeto
+  edit(acessorio: Acessorio) {
+    this.acessorioEdit = Object.assign({}, acessorio);
     this.modalRef = this.modalService.open(this.modalAcessorioDetalhe);
   }
 
-  retornoDetalhe(acessorio: Acessorio){
+  retornoDetalhe(acessorio: Acessorio) {
     this.listAll();
     this.modalRef.close();
   }
 
-
-  select(acessorio: Acessorio){
+  select(acessorio: Acessorio) {
     this.retorno.emit(acessorio);
   }
 }

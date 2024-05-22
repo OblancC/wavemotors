@@ -1,28 +1,27 @@
 .container {
     display: flex;
-    justify-content: center; // Alinha o conteúdo horizontalmente
-    align-items: center; // Alinha o conteúdo verticalmente
-    height: 80vh; // Define a altura da div container para ocupar toda a altura da tela
+    justify-content: center; 
+    align-items: center; 
+    height: 80vh; 
 }
 
 .row {
     display: flex;
-    //justify-content: center; // Alinha os elementos da row no centro horizontalmente
-    width: 100%; // Garante que a row ocupe toda a largura disponível
+    width: 100%;
 }
 
 .col-lg-4 {
-    flex: 0 0 auto; // Evita que as colunas cresçam ou diminuam
+    flex: 0 0 auto; 
 }
 
 .form-control {
-    margin-bottom: 10px; // Adiciona um espaço entre os campos de entrada
+    margin-bottom: 10px;
 }
 
 .btn {
-    margin-top: 10px; // Adiciona um espaço acima do botão
+    margin-top: 10px; 
 }
 
 .text-center {
-    text-align: center; // Alinha o texto no centro horizontalmente
+    text-align: center;
 }

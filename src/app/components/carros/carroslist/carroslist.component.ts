@@ -2,7 +2,11 @@ import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
 import { Carro } from '../../../models/carro';
 import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
-import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import {
+  MdbModalModule,
+  MdbModalRef,
+  MdbModalService,
+} from 'mdb-angular-ui-kit/modal';
 import { CarrosdetailsComponent } from '../carrosdetails/carrosdetails.component';
 import { Marca } from '../../../models/marca';
 import { CarroService } from '../../../services/carros.service';
@@ -16,11 +20,10 @@ import { CarroService } from '../../../services/carros.service';
 })
 export class CarroslistComponent {
   lista: Carro[] = [];
-  carroEdit: Carro = new Carro(0, "", 0, "", 0, new Marca(0,''));
+  carroEdit: Carro = new Carro(0, '', 0, '', 0, 25, new Marca(0, ''));
 
-  //ELEMENTOS DA MODAL
-  modalService = inject(MdbModalService); // para conseguir abrir a modal
-  @ViewChild("modalCarroDetalhe") modalCarroDetalhe!: TemplateRef<any>;
+  modalService = inject(MdbModalService);
+  @ViewChild('modalCarroDetalhe') modalCarroDetalhe!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
   carroService = inject(CarroService);
@@ -44,21 +47,19 @@ export class CarroslistComponent {
     }
   }
 
-  listAll(){
-
+  listAll() {
     this.carroService.listAll().subscribe({
-      next: lista => { //quando o back retornar o que se espera
+      next: (lista) => {
         this.lista = lista;
       },
-      error: erro => { //quando ocorrer qualquer erro (badrequest, exceptions..)
+      error: (erro) => {
         Swal.fire({
           title: 'Ocorreu um erro',
           icon: 'error',
           confirmButtonText: 'Ok',
         });
-      }
+      },
     });
-
   }
 
   deleteById(carro: Carro) {
@@ -71,10 +72,8 @@ export class CarroslistComponent {
       cancelButtonText: 'Não',
     }).then((result) => {
       if (result.isConfirmed) {
-
-
         this.carroService.delete(carro.id).subscribe({
-          next: mensagem => { //quando o back retornar o que se espera
+          next: (mensagem) => {
             Swal.fire({
               title: mensagem,
               icon: 'success',
@@ -83,33 +82,30 @@ export class CarroslistComponent {
 
             this.listAll();
           },
-          error: erro => { //quando ocorrer qualquer erro (badrequest, exceptions..)
+          error: (erro) => {
             Swal.fire({
               title: 'Ocorreu um erro',
               icon: 'error',
               confirmButtonText: 'Ok',
             });
-          }
+          },
         });
-
-
       }
     });
   }
 
-  new(){
-    this.carroEdit = new Carro(0, "", 0, "", 0, new Marca(0,''));
+  new() {
+    this.carroEdit = new Carro(0, '', 0, '', 0, 25, new Marca(0, ''));
     this.modalRef = this.modalService.open(this.modalCarroDetalhe);
   }
 
-  edit(carro: Carro){
-    this.carroEdit = Object.assign({}, carro); //clonando pra evitar referência de objeto
+  edit(carro: Carro) {
+    this.carroEdit = Object.assign({}, carro);
     this.modalRef = this.modalService.open(this.modalCarroDetalhe);
   }
 
-  retornoDetalhe(carro: Carro){
+  retornoDetalhe(carro: Carro) {
     this.listAll();
     this.modalRef.close();
   }
-
 }

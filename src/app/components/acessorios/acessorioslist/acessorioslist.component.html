@@ -11,15 +11,8 @@
             <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="new()">
               Novo
             </button>
-
-            <!--
-          <button type="button" class="btn btn-primary btn-rounded" mdbRipple routerLink="/admin/acessorios/new">
-            Novo
-          </button>
-          -->
-
-        </div>
-        <br>
+          </div>
+          <br>
           <table border="1" class="table table-striped">
             <thead>
               <tr>
@@ -35,16 +28,16 @@
                 <td>{{ acessorio.nome }}</td>
                 <td class="direita">
                   @if (esconderBotoes) {
-                    <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="select(acessorio)">
-                      Selecionar
-                    </button>
+                  <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="select(acessorio)">
+                    Selecionar
+                  </button>
                   }@else{
-                    <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="edit(acessorio)">
-                      Editar
-                    </button>
-                    <button type="button" class="btn btn-danger btn-rounded" mdbRipple (click)="deleteById(acessorio)">
-                      Deletar
-                    </button>
+                  <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="edit(acessorio)">
+                    Editar
+                  </button>
+                  <button type="button" class="btn btn-danger btn-rounded" mdbRipple (click)="deleteById(acessorio)">
+                    Deletar
+                  </button>
                   }
                 </td>
               </tr>
@@ -60,19 +53,14 @@
 
 
 <ng-template #modalAcessorioDetalhe>
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
-  <button
-    type="button"
-    class="btn-close"
-    aria-label="Close"
-    (click)="modalRef.close()"
-  ></button>
-</div>
-<div class="modal-body">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Cadastro</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+  </div>
+  <div class="modal-body">
 
-  <app-acessoriosdetails [acessorio]="acessorioEdit" (retorno)="retornoDetalhe($event)"></app-acessoriosdetails>
+    <app-acessoriosdetails [acessorio]="acessorioEdit" (retorno)="retornoDetalhe($event)"></app-acessoriosdetails>
 
-</div>
+  </div>
 
 </ng-template>
