@@ -1,1 +1,200 @@
-<p>home works!</p>
+<div class="banner-pai">
+  <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
+    <mdb-carousel-item>
+      <img
+        src="assets/img/imagem-banner1.jpg"
+        class="d-block w-100"
+        alt="img-1"      
+        style="width: 1920px; height: 600px; object-fit: cover;"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Jetta GLI</h5>
+        <p>Potência (kW)/Pôtencia (cv)<br>
+          169 kW/230 cv<br>
+          Aceleração 0 - 100 km/h <br>
+          6,8<br>
+          Velocidade Máxima<br>
+          250 km/h
+        </p>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img
+        src="assets/img/imagem-banner2.jpg"
+        class="d-block w-100"
+        alt="img-2"
+        style="width: 1920px; height: 600px; object-fit: cover;"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Porsche 911 Gt3 Rs</h5>
+        <p>Potência (kW)/Pôtencia (cv)<br>
+          386 kW/525 cv<br>
+          Aceleração 0 - 100 km/h <br>
+          3,2<br>
+          Velocidade Máxima<br>
+          296 km/h
+        </p>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img
+        src="assets/img/imagem-banner3.jpg"
+        class="d-block w-100"
+        alt="img-3"
+        style="width: 1920px; height: 600px; object-fit: cover;"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lamborghini Huracán Tecnica</h5>
+        <p>
+          Potencia (kW) / Potencia (cv) <br>
+          470 kW/ 640 cv<br>
+          Aceleração 0 - 100 km/h<br>
+          3,2<br>
+          Velocidade Máxima<br>
+          325 km/h<p>
+
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>
+</div>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Pesquisa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Adicionado para centralizar horizontalmente */
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 800px;
+            margin: 30px auto; /* Alterado para centralizar verticalmente e definir margem automática para centralizar horizontalmente */
+        }
+        .search-tabs {
+            display: flex;
+            gap: 20px;
+        }
+        .search-tabs div {
+            padding: 10px;
+            cursor: pointer;
+            color: #7a7a7a;
+        }
+        .search-tabs .active {
+            border-bottom: 3px solid red;
+            color: #000;
+        }
+        .search-input {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .search-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            margin-left: 10px;
+        }
+        .search-button button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div class="search-tabs">
+            <div class="active">Comprar carros</div>
+        </div>
+        <div class="search-input"> 
+            <input [(ngModel)]="pesquisa" type="text" placeholder="Digite marca ou modelo do carro">
+        </div>
+        <div class="search-button">
+            <button (click)="pesquisar()">Pesquisar</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+@for (carro of lista; track $index) {
+<div class="row justify-content-center g-4">
+  <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+    <div class="card w-80 h-80 m-2">
+      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
+      <div class="card-body">
+        <h5 class="card-title">{{carro.modelo}}</h5>
+        <p class="card-text">
+          This is a wider card with supporting text below as a natural lead-in to
+          additional content. This content is a little bit longer.
+        </p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+  <footer class="bg-light text-center text-lg-start">
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Footer text</h5>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+            aliquam voluptatem veniam, est atque cumque eum delectus sint!
+          </p>
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Empresa</h5>
+  
+          <p>
+            Empresa
+Avenida Juscelino Kubitschek, 3214 , Foz do Iguaçu
+
+ (45) 3528-7997
+
+Horário de atendimento:
+
+Seg. à Sexta 08:00 - 18:00, Sábado 08:00 - 12:00.
+          </p>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2020 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  
