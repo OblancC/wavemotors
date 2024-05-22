@@ -78,26 +78,31 @@
 
 </html>
 
-@for (carro of lista; track $index) {
-<div class="row justify-content-center g-4">
-  <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
-    <div class="card w-80 h-80 m-2">
-      <img src="assets/img/imagem-banner3.jpg" class="card-img-top" alt="Skyscrapers"/>
-      <div class="card-body">
-        <h5 class="card-title">{{carro.modelo}}</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This content is a little bit longer.
-        </p>
+<div id="cards" class="row justify-content-center g-4">
+    @for (carro of lista; track $index) {
+      <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+        <div class="card w-80 h-80 m-2">
+          <img src="assets/img/imagem-banner3.jpg" class="card-img-top" alt="Skyscrapers"/>
+          <div class="card-body">
+            <h5 class="card-title">{{carro.modelo}}</h5>
+            <p class="card-text">
+                <p>
+                    Potencia (kW) / Potencia (cv) <br>
+                    470 kW/ 640 cv<br>
+                    Aceleração 0 - 100 km/h<br>
+                    3,2<br>
+                    Velocidade Máxima<br>
+                    325 km/h<p>
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">R$1.195.000</small>
+          </div>
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
+    }
   </div>
-</div>
-}
-
+  
 
 
   <footer class="bg-light text-center text-lg-start">
@@ -106,11 +111,13 @@
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Footer text</h5>
+          <h5 class="text-uppercase">Informações Úteis</h5>
+          <br>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-            aliquam voluptatem veniam, est atque cumque eum delectus sint!
+            📍 Av. das Cataratas, 1118 - Vila Yolanda, Foz do Iguaçu - PR, 85853-000<br>
+            📞 (45) 3528-7997<br>
+            🕗 Horário de atendimento:<br>
+          Seg. à Sexta 08:00 - 18:00, Sábado 08:00 - 12:00.
           </p>
         </div>
         <!--Grid column-->
@@ -120,14 +127,10 @@
           <h5 class="text-uppercase">Empresa</h5>
   
           <p>
-            Empresa
-Av. das Cataratas, 1118 - Vila Yolanda, Foz do Iguaçu - PR, 85853-000
+            <br>
+            A Wave Motors é referência em vendas de veículos de alta qualidade, oferecendo uma ampla variedade de carros para todas as necessidades e preferências. Com um atendimento personalizado e uma equipe de especialistas, garantimos uma experiência de compra agradável e confiável. Descubra por que somos líderes no mercado automobilístico e sinta a diferença da excelência.
 
-          (45) 3528-7997
-
-          Horário de atendimento:
-
-          Seg. à Sexta 08:00 - 18:00, Sábado 08:00 - 12:00.
+          
         </p>
       </div>
       <!--Grid column-->
@@ -138,8 +141,8 @@ Av. das Cataratas, 1118 - Vila Yolanda, Foz do Iguaçu - PR, 85853-000
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2024 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">Wavemotors</a>
   </div>
   <!-- Copyright -->
 </footer>
