@@ -32,7 +32,7 @@ import { Acessorio } from '../../../models/acessorio';
   styleUrl: './carrosdetails.component.scss',
 })
 export class CarrosdetailsComponent {
-  @Input('carro') carro: Carro = new Carro();
+  @Input('carro') carro: Carro = new Carro(0, '', '', 0, '', 0, '', 0, null);
   @Output('retorno') retorno: EventEmitter<any> = new EventEmitter<Carro>();
 
   router = inject(ActivatedRoute);
@@ -53,65 +53,92 @@ export class CarrosdetailsComponent {
     }
   }
   findById(id: number) {
-  this.carroService.findById(id).subscribe({
-    next: retorno => {
-      this.carro = retorno;
-    },
-    error: erro=> {
-      Swal.fire({title: 'Ocorreu um Erro!',icon: 'error',confirmButtonText: 'OK'});
-    }
-  });
+    this.carroService.findById(id).subscribe({
+      next: (retorno) => {
+        this.carro = retorno;
+      },
+      error: (erro) => {
+        Swal.fire({
+          title: 'Ocorreu um Erro!',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
+      },
+    });
   }
 
-  save(){
-    if(this.carro.id > 0){
-      this.carroService.update(this.carro,this.carro.id).subscribe({
-        next:mensagem =>{
-          Swal.fire({title: mensagem,icon: 'success',confirmButtonText: 'OK'});
-          this.router2.navigate(['admin/carros'],{state:{carroEditado:this.carro}});
+  save() {
+    if (this.carro.id > 0) {
+      this.carroService.update(this.carro, this.carro.id).subscribe({
+        next: (mensagem) => {
+          Swal.fire({
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
+          this.router2.navigate(['admin/carros'], {
+            state: { carroEditado: this.carro },
+          });
           this.retorno.emit(this.carro);
         },
-        error: erro =>{
-          Swal.fire({title: 'Ocorreu um Erro!',icon: 'error',confirmButtonText: 'OK'});
-        }
+        error: (erro) => {
+          Swal.fire({
+            title: 'Ocorreu um Erro!',
+            icon: 'error',
+            confirmButtonText: 'OK',
+          });
+        },
       });
-    }else{
+    } else {
       this.carroService.save(this.carro).subscribe({
-        next: mensagem =>{
-          Swal.fire({title: mensagem,icon: 'success',confirmButtonText: 'OK'});
-          this.router2.navigate(['admin/carros'],{state:{carroNovo:this.carro}});
+        next: (mensagem) => {
+          Swal.fire({
+            title: mensagem,
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
+          this.router2.navigate(['admin/carros'], {
+            state: { carroNovo: this.carro },
+          });
           this.retorno.emit(this.carro);
         },
-        error: erro =>{
-          Swal.fire({title: 'Ocorreu um Erro!',icon: 'error',confirmButtonText: 'OK'});
-        }
+        error: (erro) => {
+          Swal.fire({
+            title: 'Ocorreu um Erro!',
+            icon: 'error',
+            confirmButtonText: 'OK',
+          });
+        },
       });
     }
   }
 
-  buscarMarca(){
-    this.modalRef = this.modalService.open(this.modalMarcas,{modalClass:'modal-lg'});
+  buscarMarca() {
+    this.modalRef = this.modalService.open(this.modalMarcas, {
+      modalClass: 'modal-lg',
+    });
   }
 
-  buscarAcessorios(){
-    this.modalRef = this.modalService.open(this.modalAcessorios,{modalClass:'modal-lg'});
+  buscarAcessorios() {
+    this.modalRef = this.modalService.open(this.modalAcessorios, {
+      modalClass: 'modal-lg',
+    });
   }
 
-  retornoMarca(marca: Marca){
+  retornoMarca(marca: Marca) {
     this.carro.marca = marca;
     this.modalRef.close();
   }
 
-  retornoAcessorio(acessorio: Acessorio){
-  if(this.carro.acessorios == null)
-    this.carro.acessorios=[];
+  retornoAcessorio(acessorio: Acessorio) {
+    if (this.carro.acessorios == null) this.carro.acessorios = [];
 
     this.carro.acessorios.push(acessorio);
     this.modalRef.close();
   }
 
-  removerAcessorio(acessorio: Acessorio){
-    let index = this.carro.acessorios.findIndex(x => x.id == acessorio.id);
-    this.carro.acessorios.splice(index,1);
+  removerAcessorio(acessorio: Acessorio) {
+    let index = this.carro.acessorios.findIndex((x) => x.id == acessorio.id);
+    this.carro.acessorios.splice(index, 1);
   }
 }
