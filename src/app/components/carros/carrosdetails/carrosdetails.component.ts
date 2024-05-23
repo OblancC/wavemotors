@@ -20,7 +20,7 @@ import { Acessorio } from '../../../models/acessorio';
 })
 export class CarrosdetailsComponent {
 
-  @Input("carro") carro: Carro = new Carro(0,"", 0, "", 0, 25,new Marca(0,''));
+  @Input("carro") carro: Carro = new Carro();
   @Output("retorno") retorno = new EventEmitter<any>();
   router = inject(ActivatedRoute);
   router2 = inject(Router);
@@ -37,7 +37,7 @@ export class CarrosdetailsComponent {
     if(id > 0){
       this.findById(id);
     }else{
-      if(this.carro.id > 0)
+      if(this.carro.idAnuncio > 0)
         this.findById(id);
     }
   }
@@ -60,9 +60,11 @@ export class CarrosdetailsComponent {
   }
 
   save(){
-    if(this.carro.id > 0){
+    if(this.carro.idAnuncio > 0){
 
-      this.carroService.update(this.carro, this.carro.id).subscribe({
+      console.log(this.carro);
+
+      this.carroService.update(this.carro, this.carro.idAnuncio).subscribe({
         next: mensagem => {
           Swal.fire({
             title: mensagem,
@@ -82,6 +84,12 @@ export class CarrosdetailsComponent {
       });
 
     }else{
+
+      //GAMBIARRA TEM Q VIRAR INPUT NO DETAILSS...
+      this.carro.combustivel = 'fadsjf';
+      this.carro.cor =  'asdf';
+      this.carro.placaCarro = "sfasd";
+      this.carro.valorCarro = 5;
 
       this.carroService.save(this.carro).subscribe({
         next: mensagem => {
@@ -119,7 +127,7 @@ export class CarrosdetailsComponent {
   }
 
   retornoMarca(marca: Marca){
-    this.carro.marca = marca;
+    this.carro.veiculosmarca = marca;
     this.modalRef.close();
   }
 

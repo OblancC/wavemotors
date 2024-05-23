@@ -14,14 +14,14 @@
           <br />
 
           <div>
-            @if(carro.marca == null){
+            @if(carro.veiculosmarca == null){
             <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="buscarMarca()">
               Buscar Marca
             </button>
           }@else{
             <div class="row">
               <div class="col-lg-8">
-                <p class="text-primary alert-primary">Marca: {{carro.marca.nome}}</p>
+                <p class="text-primary alert-primary">Marca: {{carro.veiculosmarca.marca}}</p>
               </div>
               <div class="col-lg-4">
                 <button type="button" class="btn btn-warning btn-rounded" mdbRipple (click)="buscarMarca()">

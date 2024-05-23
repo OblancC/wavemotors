@@ -40,7 +40,7 @@ export class MarcaslistComponent {
 
     if (marcaEditado != null) {
       let indice = this.lista.findIndex((x) => {
-        return x.id == marcaEditado.id;
+        return x.idMarca == marcaEditado.id;
       });
       this.lista[indice] = marcaEditado;
     }
@@ -75,7 +75,7 @@ export class MarcaslistComponent {
       if (result.isConfirmed) {
 
 
-        this.marcaService.delete(marca.id).subscribe({
+        this.marcaService.delete(marca.idMarca).subscribe({
           next: mensagem => { 
             Swal.fire({
               title: mensagem,

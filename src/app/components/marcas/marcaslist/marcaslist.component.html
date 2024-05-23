@@ -25,8 +25,8 @@
             <tbody>
               @for (marca of lista; track $index) {
               <tr>
-                <td>{{ marca.id }}</td>
-                <td>{{ marca.nome }}</td>
+                <td>{{ marca.idMarca }}</td>
+                <td>{{ marca.marca }}</td>
                 <td class="direita">
                   @if (esconderBotoes) {
                     <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="select(marca)">

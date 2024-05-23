@@ -27,7 +27,7 @@ export class MarcasdetailsComponent {
     if(id > 0){
       this.findById(id);
     }else{
-      if(this.marca.id > 0)
+      if(this.marca.idMarca > 0)
         this.findById(id);
     }
   }
@@ -50,9 +50,9 @@ export class MarcasdetailsComponent {
   }
 
   save(){
-    if(this.marca.id > 0){
+    if(this.marca.idMarca > 0){
 
-      this.marcaService.update(this.marca, this.marca.id).subscribe({
+      this.marcaService.update(this.marca, this.marca.idMarca).subscribe({
         next: mensagem => {
           Swal.fire({
             title: mensagem,

@@ -1,9 +1,9 @@
 export class Marca {
-    id!:number;
-    nome!:string;
+    idMarca!:number;
+    marca!:string;
 
-    constructor(id: number, nome: string){
-        this.id = id;
-        this.nome = nome;
+    constructor(idMarca: number, marca: string){
+        this.idMarca = idMarca;
+        this.marca = marca;
     }
 }

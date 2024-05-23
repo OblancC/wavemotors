@@ -20,7 +20,7 @@ import { CarroService } from '../../../services/carros.service';
 })
 export class CarroslistComponent {
   lista: Carro[] = [];
-  carroEdit: Carro = new Carro(0, '', 0, '', 0, 25, new Marca(0, ''));
+  carroEdit: Carro = new Carro();
 
   modalService = inject(MdbModalService);
   @ViewChild('modalCarroDetalhe') modalCarroDetalhe!: TemplateRef<any>;
@@ -41,7 +41,7 @@ export class CarroslistComponent {
 
     if (carroEditado != null) {
       let indice = this.lista.findIndex((x) => {
-        return x.id == carroEditado.id;
+        return x.idAnuncio == carroEditado.idAnuncio;
       });
       this.lista[indice] = carroEditado;
     }
@@ -72,7 +72,7 @@ export class CarroslistComponent {
       cancelButtonText: 'Não',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.carroService.delete(carro.id).subscribe({
+        this.carroService.delete(carro.idAnuncio).subscribe({
           next: (mensagem) => {
             Swal.fire({
               title: mensagem,
@@ -95,7 +95,7 @@ export class CarroslistComponent {
   }
 
   new() {
-    this.carroEdit = new Carro(0, '', 0, '', 0, 25, new Marca(0, ''));
+    this.carroEdit = new Carro();
     this.modalRef = this.modalService.open(this.modalCarroDetalhe);
   }
 
