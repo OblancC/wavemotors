@@ -6,10 +6,10 @@ export class Carro {
     modelo!: string;
     ano!: number;
     cor!: string;
-    valorCarro!: number;
+    valorcarro!: number;
     combustivel!: string;
     km!: number;
-    placaCarro!: string;
+    placacarro!: string;
     veiculosmarca!: Marca;
     acessorios: Acessorio[] =[];
 

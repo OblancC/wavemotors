@@ -11,7 +11,37 @@
             <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.modelo" />
             <label mdbLabel class="form-label" for="usuario">Nome</label>
           </mdb-form-control>
-          <br />
+          <br>
+          <mdb-form-control>
+            <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.cor" />
+            <label mdbLabel class="form-label" for="usuario">Cor</label>
+          </mdb-form-control>
+          <br>
+          <mdb-form-control>
+            <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.ano" />
+            <label mdbLabel class="form-label" for="usuario">Ano</label>
+          </mdb-form-control>
+          <br>
+          <mdb-form-control>
+            <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.combustivel" />
+            <label mdbLabel class="form-label" for="usuario">Tipo de Combustível</label>
+          </mdb-form-control>
+          <br>
+          <mdb-form-control>
+            <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.valorcarro" />
+            <label mdbLabel class="form-label" for="usuario">Preço do Carro</label>
+          </mdb-form-control>
+          <br>
+          <mdb-form-control>
+            <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.km" />
+            <label mdbLabel class="form-label" for="usuario">Quilometragem</label>
+          </mdb-form-control>
+          <br>
+          <mdb-form-control>
+            <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="carro.placacarro" />
+            <label mdbLabel class="form-label" for="usuario">Placa do Carro</label>
+          </mdb-form-control>
+          <br>
 
           <div>
             @if(carro.veiculosmarca == null){
@@ -40,8 +70,6 @@
             <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="buscarAcessorio()">
               Buscar Acessório
             </button>
-
-            <br>
 
 
             <table border="1" class="table table-striped">

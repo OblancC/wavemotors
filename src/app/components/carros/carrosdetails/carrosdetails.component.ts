@@ -88,8 +88,8 @@ export class CarrosdetailsComponent {
       //GAMBIARRA TEM Q VIRAR INPUT NO DETAILSS...
       this.carro.combustivel = 'fadsjf';
       this.carro.cor =  'asdf';
-      this.carro.placaCarro = "sfasd";
-      this.carro.valorCarro = 5;
+      this.carro.placacarro = "sfasd";
+      this.carro.valorcarro = 5;
 
       this.carroService.save(this.carro).subscribe({
         next: mensagem => {
