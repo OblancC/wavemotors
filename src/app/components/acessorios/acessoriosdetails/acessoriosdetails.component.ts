@@ -70,9 +70,6 @@ export class AcessoriosdetailsComponent {
               icon: 'success',
               confirmButtonText: 'Ok',
             });
-            this.router2.navigate(['admin/acessorios'], {
-              state: { acessorioEditado: this.acessorio },
-            });
             this.retorno.emit(this.acessorio);
           },
           error: (erro) => {
@@ -90,9 +87,6 @@ export class AcessoriosdetailsComponent {
             title: mensagem,
             icon: 'success',
             confirmButtonText: 'Ok',
-          });
-          this.router2.navigate(['admin/acessorios'], {
-            state: { acessorioNovo: this.acessorio },
           });
           this.retorno.emit(this.acessorio);
         },

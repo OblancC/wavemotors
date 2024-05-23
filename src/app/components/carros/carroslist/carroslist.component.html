@@ -17,11 +17,14 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>Modelo</th>
                 <th>Marca do carro</th>
                 <th>Cor</th>
                 <th>Ano</th>
                 <th>Preço</th>
+                <th>Km</th>
+                <th>Combustivel</th>
+                <th class="text-center">Ações</th>
               </tr>
             </thead>
             <tbody>
@@ -37,7 +40,9 @@
                 <td>{{carro.cor}}</td>
                 <td>{{carro.ano}}</td>
                 <td>{{carro.valorcarro}}</td>
-                <td class="direita">
+                <td>{{carro.km}}</td>
+                <td>{{carro.combustivel}}</td>
+                <td class="direita justify-content-center">
                   <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="edit(carro)">
                     Editar
                   </button>

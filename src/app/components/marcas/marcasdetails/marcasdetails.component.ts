@@ -59,7 +59,6 @@ export class MarcasdetailsComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          this.router2.navigate(['admin/marcas'], { state: { marcaEditado: this.marca } });
           this.retorno.emit(this.marca);
         },
         error: erro => {
@@ -80,7 +79,6 @@ export class MarcasdetailsComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          this.router2.navigate(['admin/marcas'], { state: { marcaNovo: this.marca } });
           this.retorno.emit(this.marca);
         },
         error: erro => {
