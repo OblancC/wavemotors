@@ -88,20 +88,14 @@
           não há imagem
         }
           <div class="card-body">
-            <h5 class="card-title">{{carro.modelo}}</h5>
-            <p class="card-text">
-                <p>
-                  Combustivel: {{carro.combustivel}} <br>
-                    Potencia (kW) / Potencia (cv) <br>
-                    470 kW/ 640 cv<br>
-                    Aceleração 0 - 100 km/h<br>
-                    3,2<br>
-                    Velocidade Máxima<br>
-                    325 km/h<p>
-            </p>
+            <h5 class="card-title">{{carro.veiculosmarca.marca}}  {{carro.modelo}}</h5>
+            <p class="card-text ">
+              <h6>Ano de Fabricação:</h6>{{carro.ano}} <br>
+              <h6>Quilometragem: </h6>{{carro.km}}<br>
+              <h6>Tipo de Combustivel</h6>{{carro.combustivel}}<br>
           </div>
           <div class="card-footer">
-            <small class="text-muted">R$1.195.000</small>
+            <small class="text-muted">R${{carro.valorcarro}}</small>
           </div>
         </div>
       </div>
