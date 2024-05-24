@@ -4,11 +4,13 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Carro } from '../../models/carro';
 import { CarroService } from '../../services/carros.service';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MdbCarouselModule, MdbFormsModule, FormsModule],
+  imports: [MdbCarouselModule, MdbFormsModule, FormsModule, RouterLink, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -39,8 +41,10 @@ export class HomeComponent {
     }
 
     findByModeloLike(pesquisa: string){
+      console.log(pesquisa);
       this.carrosService.findByModeloLike(pesquisa).subscribe({
         next: lista => {
+          console.log(lista);
           this.lista = lista;
         },
         error: erro =>{

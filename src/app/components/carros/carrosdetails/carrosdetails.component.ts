@@ -62,7 +62,7 @@ export class CarrosdetailsComponent {
   save(){
     if(this.carro.idAnuncio > 0){
 
-      console.log(this.carro);
+      //console.log(this.carro);
 
       this.carroService.update(this.carro, this.carro.idAnuncio).subscribe({
         next: mensagem => {
@@ -71,7 +71,7 @@ export class CarrosdetailsComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          this.router2.navigate(['admin/carros'], { state: { carroEditado: this.carro } });
+          this.router2.navigate(['principal/carros'], { state: { carroEditado: this.carro } });
           this.retorno.emit(this.carro);
         },
         error: erro => {
@@ -86,10 +86,10 @@ export class CarrosdetailsComponent {
     }else{
 
       //GAMBIARRA TEM Q VIRAR INPUT NO DETAILSS...
-      this.carro.combustivel = 'fadsjf';
+      /*this.carro.combustivel = 'fadsjf';
       this.carro.cor =  'asdf';
       this.carro.placacarro = "sfasd";
-      this.carro.valorcarro = 5;
+      this.carro.valorcarro = 5;*/
 
       this.carroService.save(this.carro).subscribe({
         next: mensagem => {
@@ -98,7 +98,7 @@ export class CarrosdetailsComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          this.router2.navigate(['admin/carros'], { state: { carroNovo: this.carro } });
+          this.router2.navigate(['principal/carros'], { state: { carroNovo: this.carro } });
           this.retorno.emit(this.carro);
         },
         error: erro => {

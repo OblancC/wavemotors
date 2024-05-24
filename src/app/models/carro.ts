@@ -8,6 +8,7 @@ export class Carro {
     cor!: string;
     valorcarro!: number;
     combustivel!: string;
+    imagem!: string;
     km!: number;
     placacarro!: string;
     veiculosmarca!: Marca;

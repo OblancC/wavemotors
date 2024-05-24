@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Carro } from '../../../models/carro';
+import { CarroService } from '../../../services/carros.service';
 
 @Component({
   selector: 'app-carrosview',
@@ -12,8 +13,9 @@ import { Carro } from '../../../models/carro';
 export class CarrosviewComponent {
 
   router = inject(ActivatedRoute);
+  carroService = inject(CarroService);
 
-  carro!: Carro;
+  carro: Carro = new Carro();
 
   constructor(){
     let id = this.router.snapshot.params['id'];
@@ -21,6 +23,16 @@ export class CarrosviewComponent {
   }
 
   findById(id: number){
+
+    this.carroService.findById(id).subscribe({
+      next: objeto => {
+        this.carro = objeto;
+      },
+      error: erro => {
+        alert('erro');
+      }
+    });
+
     //IMPLEMENTAR A REQUISI;ÁO
     //O CARRO CHEGA AQUIs
   }
