@@ -2,11 +2,13 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Carro } from '../../../models/carro';
 import { CarroService } from '../../../services/carros.service';
+import { FormsModule } from '@angular/forms';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
 @Component({
   selector: 'app-carrosview',
   standalone: true,
-  imports: [],
+  imports: [MdbFormsModule, FormsModule],
   templateUrl: './carrosview.component.html',
   styleUrl: './carrosview.component.scss'
 })
@@ -32,9 +34,6 @@ export class CarrosviewComponent {
         alert('erro');
       }
     });
-
-    //IMPLEMENTAR A REQUISI;ÁO
-    //O CARRO CHEGA AQUIs
   }
 
 }
