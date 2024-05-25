@@ -1,14 +1,6 @@
-<!-- {{carro.modelo}}
-
-@if(carro.imagem){
-<img src="{{carro.imagem}}"/>
-}@else{
-nenhuma imagem cadastrada para este anúncio
-} -->
-
 <div class="container">
   <div class="row" id="top">
-    <div class="col-md-3">
+    <div class="col-md-3 justify-content-center">
       @if(carro.imagem){
       <img src="{{carro.imagem}}" class="img-thumbnail" />
       }@else{
@@ -23,7 +15,7 @@ nenhuma imagem cadastrada para este anúncio
       <h6>Ano: {{carro.ano}}</h6>
       <h6>Cor: {{carro.cor}}</h6>
       <h6>Tipo de Combustivel: {{carro.combustivel}}</h6>
-      <h6>Quilometragem:{{carro.km}}</h6>
+      <h6>Quilometragem: {{carro.km}}</h6>
     </div>
     <div class="col-md-3 d-flex justify-content-center" id="vendas">
       <div class="col">
@@ -44,14 +36,15 @@ nenhuma imagem cadastrada para este anúncio
         </mdb-form-control>
         <br>
         <button type="button" class="btn btn-primary" style="background-color: #EC1B2A; box-shadow: none;">
-        Enviar Proposta
-      </button>
+          Enviar Proposta
+        </button>
       </div>
     </div>
   </div>
-  
-  <h4> // Lista de Acessorios:</h4>
-  @for (acessorios of carro.acessorios; track $index) {
+  <div id="acessorio">
+    <h4> // Lista de Acessorios:</h4>
+    @for (acessorios of carro.acessorios; track $index) {
     <h6>- {{acessorios.nome}}</h6>
-  }
+    }
+  </div>
 </div>
