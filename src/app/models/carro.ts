@@ -1,13 +1,18 @@
+import { Acessorio } from "./acessorio";
+import { Marca } from "./marca";
+
 export class Carro {
-    id!: number;
+    idAnuncio!: number;
     modelo!: string;
-    marca!: string;
     ano!: number;
     cor!: string;
-    preco!: number;
-    foto!: string;
-    descricao!: string;
-    vendido!: boolean;
-    created!: Date;
-    updated!: Date;
+    valorcarro!: number;
+    combustivel!: string;
+    imagem!: string;
+    km!: number;
+    placacarro!: string;
+    veiculosmarca!: Marca;
+    acessorios: Acessorio[] =[];
+
+
 }

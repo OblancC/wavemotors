@@ -1,84 +1,111 @@
-import { CommonModule } from '@angular/common';
 import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
-import {MdbModalModule,MdbModalRef,MdbModalService} from 'mdb-angular-ui-kit/modal';
-import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
-import { FormsModule } from '@angular/forms';
-import { RouterLink,Router,RouterOutlet } from '@angular/router';
 import { Carro } from '../../../models/carro';
+import { RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
+import {
+  MdbModalModule,
+  MdbModalRef,
+  MdbModalService,
+} from 'mdb-angular-ui-kit/modal';
 import { CarrosdetailsComponent } from '../carrosdetails/carrosdetails.component';
-
+import { Marca } from '../../../models/marca';
+import { CarroService } from '../../../services/carros.service';
 
 @Component({
   selector: 'app-carroslist',
   standalone: true,
-  imports: [CommonModule,
-    FormsModule,
-    RouterLink,
-    MdbModalModule,
-    CarrosdetailsComponent,
-    MdbAccordionModule,],
+  imports: [RouterLink, MdbModalModule, CarrosdetailsComponent],
   templateUrl: './carroslist.component.html',
-  styleUrl: './carroslist.component.scss'
+  styleUrl: './carroslist.component.scss',
 })
 export class CarroslistComponent {
+  lista: Carro[] = [];
+  carroEdit: Carro = new Carro();
+
   modalService = inject(MdbModalService);
-  @ViewChild('modalDetalhe') modalDetalhe!: TemplateRef<any>;
+  @ViewChild('modalCarroDetalhe') modalCarroDetalhe!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
-  lista: Carro[] = [];
-  carroEdit!: Carro;
+  carroService = inject(CarroService);
 
-  contructor(){
-    this.findAll();
-  }
-  findAll(){
-    let carro1 = new Carro();
-    carro1.id = 1;
-    carro1.modelo = 'Fusca';
-    carro1.ano = 1972;
-    carro1.marca = 'Volkswagen';
-    carro1.cor = 'Azul';
-    carro1.preco = 40000;
-    this.lista.push(carro1);
-  }
+  constructor() {
+    this.listAll();
 
-  new(){
-    this.carroEdit = new Carro();
-    this.modalRef = this.modalService.open(this.modalDetalhe);
-  }
+    let carroNovo = history.state.carroNovo;
+    let carroEditado = history.state.carroEditado;
 
-  edit(carro: Carro){
-    this.carroEdit = carro;
-    this.modalRef = this.modalService.open(this.modalDetalhe);
-  }
-
-  retornoDetalhe(carro: Carro){
-    if(this.carroEdit.id >0){
-      let indice = this.lista.findIndex((carroi) =>{
-        return carroi.id == this.carroEdit.id;
-      });
-    } else{
-      carro.id = 12;
-      this.lista.push(carro);
+    if (carroNovo != null) {
+      carroNovo.id = 555;
+      this.lista.push(carroNovo);
     }
-    this.modalRef.close();
+
+    if (carroEditado != null) {
+      let indice = this.lista.findIndex((x) => {
+        return x.idAnuncio == carroEditado.idAnuncio;
+      });
+      this.lista[indice] = carroEditado;
+    }
   }
 
-  deleteById(carro: Carro){
+  listAll() {
+    this.carroService.listAll().subscribe({
+      next: (lista) => {
+        this.lista = lista;
+      },
+      error: (erro) => {
+        Swal.fire({
+          title: 'Ocorreu um erro',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      },
+    });
+  }
+
+  deleteById(carro: Carro) {
     Swal.fire({
-      title: 'Deseja excluir o carro?',
-      showCancelButton: true,
-      confirmButtonText: `Sim`,
-      cancelButtonText: `Não`,
+      title: 'Tem certeza que deseja deletar este registro?',
+      icon: 'warning',
+      showConfirmButton: true,
+      showDenyButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Não',
     }).then((result) => {
       if (result.isConfirmed) {
-        let indice = this.lista.findIndex((carroi) => {
-          return carroi.id == carro.id; 
+        this.carroService.delete(carro.idAnuncio).subscribe({
+          next: (mensagem) => {
+            Swal.fire({
+              title: mensagem,
+              icon: 'success',
+              confirmButtonText: 'Ok',
+            });
+
+            this.listAll();
+          },
+          error: (erro) => {
+            Swal.fire({
+              title: 'Ocorreu um erro',
+              icon: 'error',
+              confirmButtonText: 'Ok',
+            });
+          },
         });
-        this.lista.splice(indice, 1); 
-        Swal.fire('Carro excluído com sucesso!', '', 'success');
       }
     });
+  }
+
+  new() {
+    this.carroEdit = new Carro();
+    this.modalRef = this.modalService.open(this.modalCarroDetalhe);
+  }
+
+  edit(carro: Carro) {
+    this.carroEdit = Object.assign({}, carro);
+    this.modalRef = this.modalService.open(this.modalCarroDetalhe);
+  }
+
+  retornoDetalhe(carro: Carro) {
+    this.listAll();
+    this.modalRef.close();
   }
 }

@@ -9,23 +9,29 @@ import { ContatoComponent } from './components/contato/contato.component';
 import { HomeComponent } from './components/home/home.component';
 import { AcessorioslistComponent } from './components/acessorios/acessorioslist/acessorioslist.component';
 import { AcessoriosdetailsComponent } from './components/acessorios/acessoriosdetails/acessoriosdetails.component';
+import { CarrosviewComponent } from './components/carros/carrosview/carrosview.component';
+import { CarrosvendasComponent } from './components/carros/carrosvendas/carrosvendas.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'principal/home', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent},
   { path: 'principal', component: PrincipalComponent, children: [
     {path: 'home', component: HomeComponent},
     { path: 'carros', component: CarroslistComponent },
+    { path: 'carros/view/:id', component: CarrosviewComponent},
     { path: 'marcas', component: MarcaslistComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'contato', component: ContatoComponent}
+    { path: 'contato', component: ContatoComponent},
   ]},
 
   {
     path: 'admin',
     component: PrincipalComponent,
     children: [
+      { path: 'carros/view/:id', component: CarrosviewComponent},
+      { path: 'carros/vendas', component: CarrosvendasComponent},
       { path: 'carros/new', component: CarrosdetailsComponent },
       { path: 'carros/edit/:id', component: CarrosdetailsComponent },
+      { path: 'marcas', component: MarcaslistComponent },
       { path: 'marcas/new', component: MarcasdetailsComponent },
       { path: 'marcas/edit/:id', component: MarcasdetailsComponent },
       {path: 'acessorios', component: AcessorioslistComponent},
