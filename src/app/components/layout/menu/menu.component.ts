@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { LoginService } from '../../../auth/login.service';
 
 
 @Component({
@@ -11,5 +12,7 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
+
+  loginService = inject (LoginService);
 
 }
