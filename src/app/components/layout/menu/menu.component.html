@@ -2,24 +2,32 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <img src="assets/img/logo.png" alt="logo" style="width: 50px;">
+      <img src="assets/img/logo.png" alt="logo" style="width: 50px" />
     </a>
 
-    <button class="navbar-toggler" type="button" (click)="basicNavbar.toggle()" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="basicNavbar.toggle()"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <i class="fas fa-bars"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" mdbCollapse #basicNavbar="mdbCollapse">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      mdbCollapse
+      #basicNavbar="mdbCollapse"
+    >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-
-
         @if(loginService.getToken() != null ){
 
-        
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="principal/carros">Veiculos</a>
+          <a class="nav-link active" aria-current="page" href="principal/carros"
+            >Veiculos</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="admin/marcas">Marcas</a>
@@ -27,8 +35,7 @@
         <li class="nav-item">
           <a class="nav-link active" href="admin/acessorios">Acessórios</a>
         </li>
-      }
-
+        }
 
         <li class="nav-item">
           <a class="nav-link active" href="admin/carros/vendas">Anuncios</a>
@@ -37,17 +44,17 @@
         <li class="nav-item">
           <a class="nav-link active" href="principal/contato">Contato</a>
         </li>
-        
-        <div class="d-flex align-items-center">
-        </div>
 
-
+        <div class="d-flex align-items-center"></div>
       </ul>
-      <button type="button" class="btn btn-primary" style="background-color: #EC1B2A; box-shadow: none;" routerLink="/login">
-
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="background-color: #ec1b2a; box-shadow: none"
+        routerLink="/login"
+      >
         Login
       </button>
-
     </div>
   </div>
 </nav>

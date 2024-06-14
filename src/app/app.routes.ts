@@ -13,12 +13,17 @@ import { CarrosviewComponent } from './components/carros/carrosview/carrosview.c
 import { CarrosvendasComponent } from './components/carros/carrosvendas/carrosvendas.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'principal/home', pathMatch: 'full' },
-  {path: 'login', component: LoginComponent},
-  { path: 'principal', component: PrincipalComponent, children: [
+  { path: '', redirectTo: '/principal/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent},
+ 
+  { path: '', component: PrincipalComponent, children: [
     {path: 'home', component: HomeComponent},
+    { path: 'carros/view/:id', component: CarrosviewComponent}
+
+  ]},
+
+  { path: 'principal', component: PrincipalComponent, children: [
     { path: 'carros', component: CarroslistComponent },
-    { path: 'carros/view/:id', component: CarrosviewComponent},
     { path: 'marcas', component: MarcaslistComponent },
     { path: 'contato', component: ContatoComponent},
   ]},
@@ -27,7 +32,6 @@ export const routes: Routes = [
     path: 'admin',
     component: PrincipalComponent,
     children: [
-      { path: 'carros/view/:id', component: CarrosviewComponent},
       { path: 'carros/vendas', component: CarrosvendasComponent},
       { path: 'carros/new', component: CarrosdetailsComponent },
       { path: 'carros/edit/:id', component: CarrosdetailsComponent },
