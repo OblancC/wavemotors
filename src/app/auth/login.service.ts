@@ -41,13 +41,12 @@ export class LoginService {
     return "";
   }
 
-  hasPermission(flagTipoUser: number) {
+  hasPermission(flag_User: number) {
     let user = this.jwtDecode() as Usuario;
-    if (user.flagTipoUser == flagTipoUser)
+    if (user.flag_User == flag_User)
       return true;
     else
       return false;
   }
-
 
 }

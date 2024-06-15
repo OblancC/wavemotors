@@ -11,36 +11,36 @@ import { AcessorioslistComponent } from './components/acessorios/acessorioslist/
 import { AcessoriosdetailsComponent } from './components/acessorios/acessoriosdetails/acessoriosdetails.component';
 import { CarrosviewComponent } from './components/carros/carrosview/carrosview.component';
 import { CarrosvendasComponent } from './components/carros/carrosvendas/carrosvendas.component';
+import { loginGuard } from './auth/login.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/principal/home', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent},
- 
-  { path: '', component: PrincipalComponent, children: [
-    {path: 'home', component: HomeComponent},
-    { path: 'carros/view/:id', component: CarrosviewComponent}
-
-  ]},
-
-  { path: 'principal', component: PrincipalComponent, children: [
-    { path: 'carros', component: CarroslistComponent },
-    { path: 'marcas', component: MarcaslistComponent },
-    { path: 'contato', component: ContatoComponent},
-  ]},
-
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    component: PrincipalComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'carros/view/:id', component: CarrosviewComponent },
+      { path: 'vendas', component: CarrosvendasComponent },
+      { path: 'contato', component: ContatoComponent },
+    ],
+  },
+  
   {
     path: 'admin',
     component: PrincipalComponent,
+    canActivate:[loginGuard],
     children: [
-      { path: 'carros/vendas', component: CarrosvendasComponent},
+      { path: 'carros', component: CarroslistComponent },
       { path: 'carros/new', component: CarrosdetailsComponent },
       { path: 'carros/edit/:id', component: CarrosdetailsComponent },
       { path: 'marcas', component: MarcaslistComponent },
       { path: 'marcas/new', component: MarcasdetailsComponent },
       { path: 'marcas/edit/:id', component: MarcasdetailsComponent },
-      {path: 'acessorios', component: AcessorioslistComponent},
-      {path: 'acessorios/new', component: AcessoriosdetailsComponent},
-      {path: 'acessorios/edit/:id', component: AcessoriosdetailsComponent}
+      { path: 'acessorios', component: AcessorioslistComponent },
+      { path: 'acessorios/new', component: AcessoriosdetailsComponent },
+      { path: 'acessorios/edit/:id', component: AcessoriosdetailsComponent },
     ],
   },
 ];

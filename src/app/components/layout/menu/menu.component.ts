@@ -15,4 +15,8 @@ export class MenuComponent {
 
   loginService = inject (LoginService);
 
+  reload(){
+    location.reload();
+  }
+
 }

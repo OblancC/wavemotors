@@ -24,7 +24,7 @@ export class LoginComponent {
         console.log(token);
         if(token)
           this.loginService.addToken(token);
-        this.router.navigate(['/principal/home'])
+        this.router.navigate(['home'])
       },
       error: erro =>{
         alert('Exemplo de tratamento de erro.');

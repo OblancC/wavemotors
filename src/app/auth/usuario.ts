@@ -3,5 +3,6 @@ export class Usuario {
   idVendedor!: number;
   email!: string;
   Senha!: string;
-  flagTipoUser!: number;
+  flag_User!: number;
+  flagAtivo!: boolean;
 }
