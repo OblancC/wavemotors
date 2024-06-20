@@ -71,7 +71,7 @@ export class CarrosdetailsComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          this.router2.navigate(['carros'], { state: { carroEditado: this.carro } });
+          this.router2.navigate(['admin/carros'], { state: { carroEditado: this.carro } });
           this.retorno.emit(this.carro);
         },
         error: erro => {
@@ -98,7 +98,7 @@ export class CarrosdetailsComponent {
             icon: 'success',
             confirmButtonText: 'Ok',
           });
-          this.router2.navigate(['carros'], { state: { carroNovo: this.carro } });
+          this.router2.navigate(['/admin/carros'], { state: { carroNovo: this.carro } });
           this.retorno.emit(this.carro);
         },
         error: erro => {

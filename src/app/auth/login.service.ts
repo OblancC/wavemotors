@@ -43,7 +43,7 @@ export class LoginService {
 
   hasPermission(flag_User: number) {
     let user = this.jwtDecode() as Usuario;
-    if (user.flag_User == flag_User)
+    if (user.flagTipoUser == flag_User)
       return true;
     else
       return false;

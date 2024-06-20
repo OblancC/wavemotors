@@ -1,17 +1,18 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { inject } from '@angular/core';
+import { CanActivateFn } from '@angular/router';
 import { LoginService } from './login.service';
 
-@Injectable()
-export class loginGuard implements CanActivate {
-  constructor(private loginService: LoginService) {}
+export const loginGuard: CanActivateFn = (route, state) => {
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(!this.loginService.hasPermission(1) && state.url.includes('/admin')){
-      alert('Você não tem permissão para acessar essa página');
-      return false;
-    }
+  let loginService = inject(LoginService);
 
-    return true;
+  console.log(loginService.hasPermission(1));
+  console.log( state.url.includes('/admin'));
+
+  if(!loginService.hasPermission(1) && state.url.includes('/admin')){
+    alert('Você não tem permissão para acessar essa página');
+    return false;
   }
-} 
+
+  return true;
+};
