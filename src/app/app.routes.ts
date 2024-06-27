@@ -12,6 +12,8 @@ import { AcessoriosdetailsComponent } from './components/acessorios/acessoriosde
 import { CarrosviewComponent } from './components/carros/carrosview/carrosview.component';
 import { CarrosvendasComponent } from './components/carros/carrosvendas/carrosvendas.component';
 import { loginGuard } from './auth/login.guard';
+import { PropostalistComponent } from './components/proposta/propostalist/propostalist.component';
+import { PropostadetailsComponent } from './components/proposta/propostadetails/propostadetails.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,6 +43,8 @@ export const routes: Routes = [
       { path: 'acessorios', component: AcessorioslistComponent },
       { path: 'acessorios/new', component: AcessoriosdetailsComponent },
       { path: 'acessorios/edit/:id', component: AcessoriosdetailsComponent },
+      { path: 'propostas', component: PropostalistComponent},
+      { path: 'propostas/view', component: PropostadetailsComponent}
     ],
   },
 ];
