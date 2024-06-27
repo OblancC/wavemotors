@@ -27,7 +27,7 @@ export class LoginComponent {
         this.router.navigate(['home'])
       },
       error: erro =>{
-        alert('Exemplo de tratamento de erro.');
+        alert('Usuario ou Senha invalidos.');
         console.error(erro);
       }
     });
