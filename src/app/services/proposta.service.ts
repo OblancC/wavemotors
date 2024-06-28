@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Proposta } from '../models/proposta';
 import { Observable, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable, throwError } from 'rxjs';
 export class PropostaService {
 
   http = inject(HttpClient);
-  API = "http://localhost:8080/api/proposta"
+  API = environment.SERVIDOR+"/api/proposta"
   constructor() { }
 
   listAll(): Observable<Proposta[]>{ 
